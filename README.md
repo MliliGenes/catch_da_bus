@@ -31,7 +31,7 @@ node bookTicket.mjs "<Route Name>" "<HH:MM>"
 
 **Example:**
 ```bash
-node bookTicket.mjs "Casablanca-Rabat" "14:30"
+node bookTicket.mjs "Tetouan|Martil" "14:30"
 ```
 
 ## 🧠 How It Works
