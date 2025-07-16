@@ -1,12 +1,16 @@
-// bookTicket.mjs
 import axios from "axios";
+import dotenv from "dotenv";
 
-// ✅ Global token (you can load it from env later)
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQwMCwibG9naW4iOiJzZWwtbWxpbCIsImlhdCI6MTc1MjYxMzc1MCwiZXhwIjoxNzUyNjIwOTUwfQ.buOvyOPzqoMRtyoW7Iu8OZ5zlnyQ1ppFApcMsp88IAk";
+dotenv.config();
+const TOKEN = process.env.BUS_TOKEN;
+if (!TOKEN) {
+    console.error("❌ Please set the BUS_TOKEN environment variable in your .env file.");
+    process.exit(1);
+}
 
 // ✅ Base config
 const API_BASE = "https://bus-med.1337.ma/api";
-const CHECK_INTERVAL = 5000; // Check every 5 seconds
+const CHECK_INTERVAL = 500; // Check every 5 seconds
 const MAX_RETRIES = 720; // Maximum retries (1 hour if checking every 5 seconds)
 
 // ✅ Headers using the token
