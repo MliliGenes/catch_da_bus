@@ -10,8 +10,8 @@ if (!TOKEN) {
 
 // ✅ Base config
 const API_BASE = "https://bus-med.1337.ma/api";
-const CHECK_INTERVAL = 500; // Check every 5 seconds
-const MAX_RETRIES = 720; // Maximum retries (1 hour if checking every 5 seconds)
+const CHECK_INTERVAL = 500;
+const MAX_RETRIES = 100;
 
 // ✅ Headers using the token
 const headers = {

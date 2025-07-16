@@ -46,8 +46,8 @@ node bookTicket.mjs "Tetouan|Martil" "14:30"
 These constants can be tweaked inside the script:
 
 ```js
-const CHECK_INTERVAL = 500;     // Time (ms) between checks (default: 500ms)
-const MAX_RETRIES = 720;        // Max checks (default: 1 hour if checking every 5s)
+const CHECK_INTERVAL = 500;   
+const MAX_RETRIES = 100;       
 const API_BASE = "https://bus-med.1337.ma/api";
 ```
 
