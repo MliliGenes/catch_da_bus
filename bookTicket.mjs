@@ -6,7 +6,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config();
 const TOKEN = process.env.BUS_TOKEN;
 
 if (!TOKEN) {
@@ -16,8 +17,8 @@ if (!TOKEN) {
 
 // ✅ Base config
 const API_BASE = "https://bus-med.1337.ma/api";
-const CHECK_INTERVAL = 500;
-const MAX_RETRIES = 1000;
+const CHECK_INTERVAL = 100
+const MAX_RETRIES = 10000;
 
 // ✅ Headers using the token
 const headers = {
@@ -161,11 +162,11 @@ async function scheduler() {
         }
 
         // Check if we've exceeded max retries
-        if (retryCount >= MAX_RETRIES) {
-            console.log(`❌ Max retries (${MAX_RETRIES}) reached. Exiting...`);
-            clearInterval(checkInterval);
-            process.exit(1);
-        }
+        // if (retryCount >= MAX_RETRIES) {
+        //     console.log(`❌ Max retries (${MAX_RETRIES}) reached. Exiting...`);
+        //     clearInterval(checkInterval);
+        //     process.exit(1);
+        // }
     }, CHECK_INTERVAL);
 
     // Handle graceful shutdown
