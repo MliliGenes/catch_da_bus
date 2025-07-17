@@ -17,8 +17,7 @@ if (!TOKEN) {
 
 // ✅ Base config
 const API_BASE = "https://bus-med.1337.ma/api";
-const CHECK_INTERVAL = 100
-const MAX_RETRIES = 10000;
+const CHECK_INTERVAL = 10;
 
 // ✅ Headers using the token
 const headers = {
@@ -161,12 +160,6 @@ async function scheduler() {
             }
         }
 
-        // Check if we've exceeded max retries
-        // if (retryCount >= MAX_RETRIES) {
-        //     console.log(`❌ Max retries (${MAX_RETRIES}) reached. Exiting...`);
-        //     clearInterval(checkInterval);
-        //     process.exit(1);
-        // }
     }, CHECK_INTERVAL);
 
     // Handle graceful shutdown
